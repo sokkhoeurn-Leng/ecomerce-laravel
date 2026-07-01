@@ -49,11 +49,58 @@
     </main>
 
     <footer v-if="!isAdmin" class="footer">
-      <div class="footer-inner">
-        <span class="footer-logo">
-          <img src="./image/icon.png" alt="" />
-        </span>
-        <p>© 2025 SkCake Store. Made with love 🩷</p>
+      <div class="footer-main">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h3 class="footer-store-name">Sweet Cake Store</h3>
+            <p class="footer-tagline">Freshly baked cakes for every celebration.</p>
+            <div class="footer-contact">
+              <p><i class="fas fa-map-marker-alt"></i> Phnom Penh, Cambodia</p>
+              <p><i class="fas fa-phone"></i> +855 88 563 476</p>
+              <p><i class="fas fa-envelope"></i> info@sweetcakestore.com</p>
+            </div>
+          </div>
+
+          <div class="footer-links-group">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><router-link to="/">Home</router-link></li>
+              <li><router-link to="/about">About</router-link></li>
+              <li><router-link to="/shop">Cakes</router-link></li>
+              <li><router-link to="/contact">Contact</router-link></li>
+            </ul>
+          </div>
+
+          <div class="footer-links-group">
+            <h4>Customer Service</h4>
+            <ul class="footer-links">
+              <li><router-link to="/faq">FAQ</router-link></li>
+              <li><router-link to="/delivery">Delivery</router-link></li>
+              <li><router-link to="/refund-policy">Refund Policy</router-link></li>
+            </ul>
+          </div>
+
+          <div class="footer-links-group">
+            <h4>Follow Us</h4>
+            <ul class="footer-links">
+              <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+              <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+              <li><a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-newsletter">
+          <h4>Subscribe to our newsletter</h4>
+          <form @submit.prevent class="newsletter-form">
+            <input type="email" placeholder="Enter your email" class="newsletter-input" />
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 SK Sweet Cake Store. Made with love 🩷</p>
       </div>
     </footer>
   </div>
@@ -194,22 +241,255 @@ body { font-family: 'Inter', sans-serif; background-color: #fdf8f3; color: #2d1b
 
 .main-content { flex: 1; }
 
-.footer { background: #2d1b0e; padding: 1.5rem 2rem; text-align: center; }
-.footer-inner { display: flex; align-items: center; justify-content: center; gap: 0.75rem; }
-.footer p { color: #a0856a; font-size: 0.85rem; }
+.footer {
+  background: linear-gradient(180deg, #2d1b0e 0%, #1f1209 100%);
+  color: #d4b896;
+  padding: 3rem 2rem 1rem;
+  margin-top: auto;
+}
+
+.footer-main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
 .footer-logo {
-  width: 34px;
-  height: 34px;
-  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.85;
+  margin-bottom: 0.25rem;
 }
+
 .footer-logo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.footer-store-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #f5c87a;
+  margin: 0;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: #c4a882;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.footer-contact p {
+  font-size: 0.85rem;
+  color: #b8956e;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.footer-contact i {
+  color: #c8773a;
+  font-size: 0.8rem;
+  width: 14px;
+  text-align: center;
+}
+
+.footer-links-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-links-group h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f5c87a;
+  margin: 0 0 0.25rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-links-group h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: #c8773a;
+  border-radius: 2px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-links li {
+  margin: 0;
+}
+
+.footer-links a {
+  color: #b8956e;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: #f5c87a;
+  transform: translateX(4px);
+}
+
+.footer-newsletter {
+  grid-column: 1 / -1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(200, 119, 58, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-top: 0.5rem;
+}
+
+.footer-newsletter h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f5c87a;
+  margin: 0 0 1rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 500px;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(200, 119, 58, 0.3);
+  border-radius: 8px;
+  color: #f5c87a;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s;
+}
+
+.newsletter-input::placeholder {
+  color: #8b6f5c;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: #c8773a;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(200, 119, 58, 0.15);
+}
+
+.newsletter-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #c8773a, #e8945a);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+
+.newsletter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 119, 58, 0.4);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(200, 119, 58, 0.2);
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #8b6f5c;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 1.5rem 1rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-newsletter {
+    grid-column: 1 / -1;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .footer-links-group h4::after {
+    display: none;
+  }
 }
 </style>

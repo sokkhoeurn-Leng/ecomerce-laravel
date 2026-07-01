@@ -28,7 +28,7 @@
         <form @submit.prevent="handleLogin" class="auth-form">
           <div class="hint-box">
             <i class="fas fa-info-circle"></i>
-            Admin: admin@example.com / password
+            Admin: admin@example.com / password123
           </div>
 
           <div class="field">

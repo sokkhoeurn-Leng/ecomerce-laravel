@@ -30,7 +30,7 @@ const router = createRouter({
     { path: '/orders',        name: 'Orders',      component: () => import('./views/Orders.vue'),      beforeEnter: authOnly },
     { path: '/orders/:id',    name: 'OrderDetail', component: () => import('./views/OrderDetail.vue'), beforeEnter: authOnly },
     { path: '/profile',       name: 'Profile',     component: () => import('./views/Profile.vue'),     beforeEnter: authOnly },
-    { path: '/about',         name: 'About',       component: () => import('./views/Home.vue') },
+    { path: '/about',         name: 'About',       component: () => import('./views/About.vue') },
     {
       path: '/admin',
       component: () => import('./views/admin/AdminLayout.vue'),
