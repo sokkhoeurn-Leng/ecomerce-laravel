@@ -22,6 +22,7 @@ const router = createRouter({
     { path: '/',              name: 'Home',        component: () => import('./views/Home.vue') },
     { path: '/login',         name: 'Login',       component: () => import('./views/Login.vue') },
     { path: '/register',      name: 'Register',    component: () => import('./views/Register.vue') },
+    { path: '/auth/callback', name: 'AuthCallback', component: () => import('./views/AuthCallback.vue') },
     { path: '/shop',          name: 'Shop',        component: () => import('./views/shop/Products.vue') },
     { path: '/products/:id',  name: 'ProductDetail', component: () => import('./views/shop/ProductDetail.vue') },
     { path: '/wishlist',      name: 'Wishlist',    component: () => import('./views/Wishlist.vue'),   beforeEnter: authOnly },

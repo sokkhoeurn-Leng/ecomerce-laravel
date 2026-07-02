@@ -43,7 +43,7 @@ class OrderController extends Controller
             'shipping_address.phone'    => 'required|string',
             'shipping_address.address'  => 'required|string',
             'shipping_address.city'     => 'required|string',
-            'payment_method'            => 'required|in:cod,card',
+            'payment_method'            => 'required|in:aba,acleda,card,cod',
         ]);
 
         $cartItems = Cart::where('user_id', $request->user()->id)->with('product')->get();
@@ -75,7 +75,7 @@ class OrderController extends Controller
                     'product_name' => $item->product->name,
                     'price'        => $item->product->price,
                     'quantity'     => $item->quantity,
-                    'subtotal'     => $item->product->price * $item->quantity,
+                    'total'        => $item->product->price * $item->quantity,
                 ]);
                 $item->product->decrement('stock_quantity', $item->quantity);
             }

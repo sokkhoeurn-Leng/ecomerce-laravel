@@ -27,6 +27,9 @@ class User extends Authenticatable
         'password',
         'is_admin',
         'role',
+        'social_id',
+        'social_type',
+        'avatar',
     ];
 
     /**
